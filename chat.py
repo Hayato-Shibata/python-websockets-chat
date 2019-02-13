@@ -13,7 +13,9 @@ import gevent
 from flask import Flask, render_template
 from flask_sockets import Sockets
 import sys, codecs
-sys.stdout = codecs.getwriter("utf-8")(sys.stdout)
+
+reload(sys)
+set.defaultencoding("utf-8")
 
 REDIS_URL = os.environ['REDIS_URL']
 REDIS_CHAN = 'chat'
