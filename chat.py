@@ -3,7 +3,6 @@
 """
 Chat Server
 ===========
-
 This simple application uses WebSockets to run a primitive chat server.
 """
 
@@ -13,6 +12,8 @@ import redis
 import gevent
 from flask import Flask, render_template
 from flask_sockets import Sockets
+import sys, codecs
+sys.stdout = codecs.getwriter("utf-8")(sys.stdout)
 
 REDIS_URL = os.environ['REDIS_URL']
 REDIS_CHAN = 'chat'
@@ -90,6 +91,4 @@ def outbox(ws):
     while not ws.closed:
         # Context switch while `ChatBackend.start` is running in the background.
         gevent.sleep(0.1)
-
-
 
