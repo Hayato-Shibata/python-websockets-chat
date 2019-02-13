@@ -15,7 +15,7 @@ from flask_sockets import Sockets
 import sys, codecs
 
 reload(sys)
-set.defaultencoding("utf-8")
+sys.setdefaultencoding("utf-8")
 
 REDIS_URL = os.environ['REDIS_URL']
 REDIS_CHAN = 'chat'
